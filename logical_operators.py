@@ -6,7 +6,7 @@ if is_swimmer and is_pro:
     print('you are an elite athlete')
 
 #  checking if swimmer but not expert "you need to practice more"
-if is_swimmer and not is_pro:
+elif is_swimmer and not is_pro:
     print('you need to practice more') 
 
 # if not swimmer "you need fins"
