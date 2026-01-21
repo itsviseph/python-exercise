@@ -1,6 +1,7 @@
 # Exercise: Pub Entry Checker (Input Version)
 # Check if a user is allowed to enter a pub based on age
 
+
 def check_pub_entry():
     age_input = input("Please enter your age: ")
 
