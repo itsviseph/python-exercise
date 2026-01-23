@@ -1,10 +1,3 @@
-# creating a oop library
-# creating a book class
-
-
-# -----------------------------
-# Book class
-# -----------------------------
 class Book:
     def __init__(self, title, author):
         self.title = title
@@ -13,26 +6,25 @@ class Book:
 
     def borrow_book(self):
         if self.is_borrowed:
-            print(f"{self.title} is not available")
+            print("the book is not available")
             return False
+
         else:
             self.is_borrowed = True
-            print(f"{self.title} is borrowed successfully")
+            print("the book has been borrowed")
             return True
 
     def return_book(self):
         if not self.is_borrowed:
-            print(f"{self.title} was not borrowed")
+            print("the book is not borrowed to be returned ")
             return False
+
         else:
             self.is_borrowed = False
-            print(f"{self.title} is returned successfully")
+            print("the book has been returned")
             return True
 
 
-# -----------------------------
-# User class
-# -----------------------------
 class User:
     def __init__(self, name):
         self.name = name
@@ -43,3 +35,26 @@ class User:
 
     def remove_book(self, book):
         self.borrowed_books.remove(book)
+
+
+class Library:
+    def __init__(self, books):
+        self.books = books
+
+    def borrow_books(self, user, title):
+        for book in self.books:
+            if book.title == title:
+                success = book.borrow_book()
+                if success:
+                    user.add_book(book)
+                    return
+        print("Book not found.")
+
+    def return_books(self, user, title):
+        for book in user.borrowed_books:
+            if book.title == title:
+                success = book.return_book()
+                if success:
+                    user.remove_book(book)
+                    return
+        print("this user doe not have the book")
