@@ -32,3 +32,16 @@ from functools import reduce
 total = reduce(lambda acc, transaction: acc + transaction["amount"], transactions, 0)
 
 print(total)
+
+
+# trying with a for loop insted of reduce
+
+
+def totals(transactions):
+    tots = 0
+    for transaction in transactions:
+        tots += transaction["amount"]
+    return tots
+
+
+print(totals(transactions))
