@@ -1,3 +1,5 @@
+from functools import reduce
+
 transactions = [
     {"amount": 1200, "category": "rent"},
     {"amount": 300, "category": "food"},
@@ -7,41 +9,26 @@ transactions = [
     {"amount": 60, "category": "subscriptions"},
 ]
 
-# filter()
+# 1️⃣ filter — expenses over 100
+filtered_transactions = list(filter(lambda t: t["amount"] > 100, transactions))
 
-filtered_transactions = filter(
-    lambda transaction: transaction["amount"] > 100, transactions
-)
+# 2️⃣ map — extract amounts
+amounts = list(map(lambda t: t["amount"], transactions))
 
-filtered_transaction = list(filtered_transactions)
+# 3️⃣ reduce — total expense
+total = reduce(lambda acc, t: acc + t["amount"], transactions, 0)
 
-print(filtered_transaction)
-
-
-# map()
-
-amounts = map(lambda transaction: transaction["amount"], transactions)
-amount = list(amounts)
-print(amount)
-
-
-# reduce()
-
-from functools import reduce
-
-total = reduce(lambda acc, transaction: acc + transaction["amount"], transactions, 0)
-
+print(filtered_transactions)
+print(amounts)
 print(total)
 
 
-# trying with a for loop insted of reduce
+# 4️⃣ loop version (baseline comparison)
+def total_with_loop(transactions):
+    total = 0
+    for t in transactions:
+        total += t["amount"]
+    return total
 
 
-def totals(transactions):
-    tots = 0
-    for transaction in transactions:
-        tots += transaction["amount"]
-    return tots
-
-
-print(totals(transactions))
+print(total_with_loop(transactions))
