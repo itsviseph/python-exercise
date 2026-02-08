@@ -1,2 +1,1 @@
 Hi my name is viseph and I am learning python and this is my simple attempt to make a japanese translator
-I Love anime 
