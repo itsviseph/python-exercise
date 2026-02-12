@@ -45,7 +45,7 @@ Each file focuses on **one concept or problem**, keeping things simple and reada
 - Functions and return values
 - Input validation
 - Problem-solving with Python
-
+- more exercises
 ---
 
 ## 🚀 How to Run an Exercise
